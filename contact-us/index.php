@@ -3624,7 +3624,7 @@ We use it here to ensure columns blocks display well across themes.
 
                           <?php
 
-                          $conn =  mysqli_connect('localhost','santohack','Maurya@238' ,'contact');
+                          $conn =  mysqli_connect('localhost','root','' ,'svc');
 
 
                           if($conn){
@@ -3641,10 +3641,11 @@ We use it here to ensure columns blocks display well across themes.
                             $company = $_POST['company'];
                             $email = $_POST['email'];
                             $message = $_POST['message'];
+                            $number = $_POST['number'];
                            
                           
                           
-                            $sql = "INSERT INTO message(firstName,lastName,email,message) VALUES('$firstName','$lastName','$email','$message')";
+                            $sql = "INSERT INTO SVC(name,email,company,message,number) VALUES('$name','$email','$company','$message', '$number')";
                             $result = mysqli_query($conn,$sql);
                             if($result){
                               echo '<script language="javascript">';
@@ -3688,7 +3689,7 @@ We use it here to ensure columns blocks display well across themes.
                           <div class="form-elem form-elem-full">
                             <label for="phone">Phone (optional)</label><br>
                             <span class="wpcf7-form-control-wrap your-phonenumber"><input type="tel"
-                                name="your-phonenumber" value="" size="40"
+                                name="number" value="" size="40"
                                 class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel"
                                 aria-invalid="false" placeholder="your phone number..."></span>
                           </div>
