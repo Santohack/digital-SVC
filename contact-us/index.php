@@ -3617,22 +3617,71 @@ We use it here to ensure columns blocks display well across themes.
                                     value="- Proposed project"><span class="wpcf7-list-item-label">- Proposed
                                     project</span></span></span></span>
                           </div> -->
+
+
+
+                          //php database
+
+                          <?php
+
+                          $conn =  mysqli_connect('localhost','santohack','Maurya@238' ,'contact');
+
+
+                          if($conn){
+                              echo "";
+                          }else{
+                              echo "No database connection";
+                          }
+
+                        
+                         
+                          
+                          if(isset($_POST['submit'])){
+                            $name = $_POST['name'];
+                            $company = $_POST['company'];
+                            $email = $_POST['email'];
+                            $message = $_POST['message'];
+                           
+                          
+                          
+                            $sql = "INSERT INTO message(firstName,lastName,email,message) VALUES('$firstName','$lastName','$email','$message')";
+                            $result = mysqli_query($conn,$sql);
+                            if($result){
+                              echo '<script language="javascript">';
+                              echo 'alert("Thank You ,We will get beck to you soon. ")';
+                              echo '</script>';
+                            }else{
+                              echo "error";
+                            }
+                          }
+                          
+                          
+                          
+                          ?>
+
+
+
+
+
+
+
+
                           <div class="form-elem form-elem-full">
                             <label for="name">Your name (required)</label><br>
-                            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value=""
+                            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="name" value=""
                                 size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                 aria-required="true" aria-invalid="false" placeholder="your name..."></span>
                           </div>
                           <div class="form-elem form-elem-full">
                             <label for="email">Your email (required)</label><br>
-                            <span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email"
-                                value="" size="40"
+                            <span class="wpcf7-form-control-wrap your-email"><input type="email" name="email" value=""
+                                size="40"
                                 class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
                                 aria-required="true" aria-invalid="false" placeholder="your email..."></span>
                           </div>
                           <div class="form-elem form-elem-full">
                             <label for="company">Company name (optional)</label><br>
-                            <span class="wpcf7-form-control-wrap your-company"><input type="text" name="your-company"
+                            <span class="wpcf7-form-control-wrap your-company"><input type="text" name="company"
                                 value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"
                                 placeholder="your company name..."></span>
                           </div>
@@ -3645,7 +3694,7 @@ We use it here to ensure columns blocks display well across themes.
                           </div>
                           <div class="form-elem form-elem-full">
                             <label for="message">Your message (required)</label><br>
-                            <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40"
+                            <span class="wpcf7-form-control-wrap your-message"><textarea name="message" cols="40"
                                 rows="10" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
                                 aria-required="true" aria-invalid="false"
                                 placeholder="your message..."></textarea></span>
