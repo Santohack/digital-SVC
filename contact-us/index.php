@@ -3624,13 +3624,13 @@ We use it here to ensure columns blocks display well across themes.
 
                           <?php
 
-                          $conn =  mysqli_connect('localhost','root','' ,'svc');
+                         $conn =  mysqli_connect('localhost','root','' ,'svc');
 
 
                           if($conn){
                               echo "";
                           }else{
-                              echo "No database connection";
+                              echo "No databas e connection";
                           }
 
                         
